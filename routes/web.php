@@ -19,3 +19,4 @@ use App\Http\Controllers\ComicController;
 
 Route::get('/', [PageController::class, "index"])->name("home");
 route::resource('/comics', ComicController::class);
+

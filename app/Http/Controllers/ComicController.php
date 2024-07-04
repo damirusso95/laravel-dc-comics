@@ -18,7 +18,7 @@ class ComicController extends Controller
         $data = [
             "list" => $catalogo
         ];
-        return view("nome", $data);
+        return view("comics.index", $data);
     }
 
     /**
@@ -26,7 +26,7 @@ class ComicController extends Controller
      */
     public function create()
     {
-        //
+        return view('comics.create');
     }
 
     /**
@@ -42,7 +42,11 @@ class ComicController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $fumetto = Comic::find($id);
+        $data = [
+            "comic" =>  $fumetto
+        ];
+        return view("comics.show" ,$data);
     }
 
     /**
