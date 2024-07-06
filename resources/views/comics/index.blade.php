@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-
-<h2>Lista fumetti:</h2>
-@foreach ($list as $fumetto)
-<p> <a href=" {{route("comics.show", $fumetto->id) }}">{{ $fumetto->name}} </a></p>
-    
-@endforeach
+<div class="container">
+    <h2 class="mt-4 mb-4">Lista Fumetti</h2>
+    <ul class="list-group">
+        @foreach ($list as $fumetto)
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="{{ route('comics.show', $fumetto->id) }}" class="fumetto-link">{{ $fumetto->name }}</a>
+                <a href="{{ route('comics.edit', $fumetto->id) }}" class="btn btn-primary btn-sm">Modifica Fumetto</a>
+            </li>
+        @endforeach
+    </ul>
+</div>
 @endsection
